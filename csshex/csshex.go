@@ -8,7 +8,8 @@ import (
 
 var re = regexp.MustCompile(`(?:^#?([[:xdigit:]]{2})([[:xdigit:]]{2})([[:xdigit:]]{2})$)|(?:^#?([[:xdigit:]]{1})([[:xdigit:]]{1})([[:xdigit:]]{1}))$`)
 
-// Parse returns the rgb parsed from a color hex string.
+// Parse returns the rgb values parsed from a color hex string,
+// with optional leading hash, for example "#fc0" or "ffcc00".
 func Parse(s string) (r, g, b uint8, ok bool) {
 	m := re.FindStringSubmatch(s)
 
